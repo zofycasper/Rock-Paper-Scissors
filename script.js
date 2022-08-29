@@ -41,21 +41,17 @@ function game() {
         function playRound(playerSelection, computerSelection) {
             if (playerSelection.toLowerCase() === "paper") {
                 if (computerSelection === "Rock") {
-                    // playerWin = playerWin++;
                     return win;
                 } else if (computerSelection === "Paper") {
                     return tie;
-                } // computerWin = computerWin++;
-                else return lose;
+                } else return lose;
             }
             if (playerSelection.toLowerCase() === "rock") {
                 if (computerSelection === "Scissors") {
-                    // playerWin = playerWin++;
                     return win;
                 } else if (computerSelection === "Rock") {
                     return tie;
-                } //computerWin = computerWin++;
-                else return lose;
+                } else return lose;
             }
             if (playerSelection.toLowerCase() === "scissors") {
                 if (computerSelection === "Paper") return win;
