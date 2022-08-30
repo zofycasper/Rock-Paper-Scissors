@@ -1,13 +1,70 @@
+function playGame() {
+    document.getElementById("myBtn").addEventListener("click", game);
+}
+
+// let buttons = document.querySelectorAll(".button");
+// console.log(buttons);
+
+// buttons.forEach((button) => {
+//     button.addEventListener("click", () => {
+//         let playerSelection = button.innerText;
+//         console.log(playerSelection);
+//     });
+// });
+
+// buttons.forEach((button) => {
+//     button.addEventListener("click", () => {
+//         playerSelection = button.innerText;})
+
+// Assign three randomly selected numbers to three different choices
+
+function playRound(playerSelection, computerSelection) {
+    if (playerSelection.toLowerCase() === "paper") {
+        if (computerSelection === "Rock") {
+            return win;
+        } else if (computerSelection === "Paper") {
+            return tie;
+        } else return lose;
+    }
+    if (playerSelection.toLowerCase() === "rock") {
+        if (computerSelection === "Scissors") {
+            return win;
+        } else if (computerSelection === "Rock") {
+            return tie;
+        } else return lose;
+    }
+    if (playerSelection.toLowerCase() === "scissors") {
+        if (computerSelection === "Paper") return win;
+        else if (computerSelection === "Scissors") {
+            return tie;
+        } else return lose;
+    }
+}
+
 function game() {
     let playerWin = 0;
     let computerWin = 0;
+    let n = 0;
+
     for (let i = 0; i < 5; i++) {
         // Print current game round number
-        console.log("Round: " + (i + 1));
+
+        console.log("Round: " + (n + 1));
+        n++;
         // Ask user to enter the choice
-        let playerSelection = prompt("Enter your choice: ");
+        let buttons = document.querySelectorAll(".button");
+        console.log(buttons);
+        buttons.forEach((button) => {
+            button.addEventListener("click", () => {
+                let playerSelection = button.innerText;
+                console.log(playerSelection);
+            });
+        });
+
+        // playerChoice(choice);
+
+        // let playerSelection = playerChoice;
         //  Randomly generate three numbers to later assign to three different choices of computer
-        let randomNumber = Math.floor(Math.random() * 3);
 
         const computerSelection = getComputerChoice();
         let win =
@@ -26,40 +83,13 @@ function game() {
         console.log(randomNumber);
 
         // Assign three randomly selected numbers to three different choices
-        function getComputerChoice() {
-            if (randomNumber === 0) {
-                return "Rock";
-            } else if (randomNumber === 1) {
-                return "Paper";
-            } else return "Scissors";
-        }
+        getComputerChoice();
 
         console.log(getComputerChoice());
 
         // Let computer play with player's choice
 
-        function playRound(playerSelection, computerSelection) {
-            if (playerSelection.toLowerCase() === "paper") {
-                if (computerSelection === "Rock") {
-                    return win;
-                } else if (computerSelection === "Paper") {
-                    return tie;
-                } else return lose;
-            }
-            if (playerSelection.toLowerCase() === "rock") {
-                if (computerSelection === "Scissors") {
-                    return win;
-                } else if (computerSelection === "Rock") {
-                    return tie;
-                } else return lose;
-            }
-            if (playerSelection.toLowerCase() === "scissors") {
-                if (computerSelection === "Paper") return win;
-                else if (computerSelection === "Scissors") {
-                    return tie;
-                } else return lose;
-            }
-        }
+        playRound(playerSelection, computerSelection);
 
         console.log(playRound(playerSelection, computerSelection));
 
@@ -82,4 +112,13 @@ function game() {
     }
 }
 
-game();
+function getComputerChoice() {
+    let randomNumber = Math.floor(Math.random() * 3);
+    if (randomNumber === 0) {
+        return "Rock";
+    } else if (randomNumber === 1) {
+        return "Paper";
+    } else return "Scissors";
+}
+
+playGame();
