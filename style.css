@@ -1,0 +1,29 @@
+body {
+    background-color: black;
+    color: white;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 1000px;
+}
+
+.playArea {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.btnContainer {
+    display: flex;
+    gap: 15px;
+}
+
+button {
+    width: 100px;
+    height: 100px;
+}
